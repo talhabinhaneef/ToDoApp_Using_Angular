@@ -1,0 +1,66 @@
+
+
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"> To Dos List</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<div class="container ">
+  <h1 class="text-center">To Do list by Talha Bin Haneef</h1>
+
+
+
+</div>
+
+<app-add-todo (todoAdd)="todoAdd($event)"></app-add-todo>
+<h4 class="mt-5 text-center">Your ToDos</h4>
+<div class="card mt-3 p-3">
+    <div class="card-body">
+        <div class="d-flex justify-content-between text-dark">
+
+            <h5 class="ms-3"> Title </h5>
+            <h5> Time </h5>
+            <h5> Description </h5>
+            <h5> Priority </h5>
+            <h5> Status </h5>
+            <h5 class="me-3"> Done </h5>
+            <h5 class="me-3"> Delete </h5>
+        </div>
+
+        <div *ngFor="let todo of todo">
+            <div class="card mt-3">
+                <div class="card-body bg-dark text-white">
+                    <div class="d-flex justify-content-between">
+        
+                        <h5> {{todo.title}}</h5>
+                        <p> {{todo.time}}</p>
+                        <p> {{todo.description}}</p>
+                        <p> {{todo.priority}}</p>
+        
+                        <button class="btn btn-sm btn-success h-25" id="btn" (click)="check()"> Done </button>
+                        <button class="btn btn-sm btn-danger h-25" (click)="onClick(todo)"> Delete </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
